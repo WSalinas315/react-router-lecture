@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 
 let plants = [
   "https://gardeningsolutions.ifas.ufl.edu/mastergardener/outreach/plant_id/images/flowers/bird_paradise_flower.jpg",
@@ -8,10 +9,23 @@ let plants = [
   "https://upload.wikimedia.org/wikipedia/commons/7/71/Kalanchoe_tomentosa_Panda_Plant_%28fabooj%29.jpg"
 ]
 
+
 function Plants() {
+  
+  const goToAnimalsPage = () => {
+    console.log('Clicked on button');
+    // Go to the animals page (w/ hook)
+    history.push('/animals');
+  }
+
+  const history = useHistory();
+
   return (
     <div>
       <h1>PLANTS</h1>
+      {/* No links in buttons!!!! */}
+      <button onClick={goToAnimalsPage}>Animal Friends!</button>
+      <br />
       {plants.map((plant, i) => 
         <img 
           key={i}
